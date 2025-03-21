@@ -1,0 +1,28 @@
+INÍCIO
+
+	1. abrir os olhos;
+	2. se o alarme estiver tocando;
+		1. esticar o corpo em direção ao celular;
+		2. pegar o celular;
+		3. desligar o alarme;
+		4. largar o celular na cômoda;
+	3. se o alarme não estiver tocando
+		1. pensar por um momento no dia;
+	4. esticar o corpo em direção ao abajur;
+	5. ligar o abajur;
+	6. deitar de barriga para cima;
+	7. esperar a alma voltar pro corpo;
+	8. esticar o corpo em direção aos óculos;
+	9. pegar o óculos;
+	10. colocar o óculos no rosto;
+	11. sentar na beira da cama;
+	12. colocar os chinelos;
+	13. levantar da cama;
+	14. caminhar até a porta do quarto;
+	15. segurar a maçaneta da porta do quarto;
+	16. girar a maçaneta;
+	17. puxar a porta;
+	18. sair do quarto;
+	19. ir para a cozinha preparar café;
+
+FIM
