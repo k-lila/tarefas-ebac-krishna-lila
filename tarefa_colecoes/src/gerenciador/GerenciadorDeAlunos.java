@@ -4,19 +4,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.Map;
-import java.util.HashSet;
 import java.util.List;
 
 public class GerenciadorDeAlunos {
     private String input;
     private List<Aluno> listaAlunos;
     private Map<String, Set<Aluno>> genderMap;
+    private Set<Aluno> alunos;
+    private Set<Aluno> alunas;
 
     public GerenciadorDeAlunos(String stringLista) {
         this.input = stringLista;
         this.listaAlunos = getListaAlunos();
         this.genderMap = getGenderMap();
+        this.alunos = this.genderMap.get("Masculino");
+        this.alunas = this.genderMap.get("Feminino");
     }
 
     private List<Aluno> getListaAlunos() {
@@ -39,7 +43,7 @@ public class GerenciadorDeAlunos {
         Map<String, Set<Aluno>> genero = new HashMap<>();
         for (Aluno aluno : this.listaAlunos) {
             if (aluno.getGenero() != null) {
-                genero.putIfAbsent(aluno.getGenero(), new HashSet<>());
+                genero.putIfAbsent(aluno.getGenero(), new TreeSet<>());
                 genero.get(aluno.getGenero()).add(aluno);
             }
         }
@@ -60,11 +64,11 @@ public class GerenciadorDeAlunos {
     public void showGender() {
         if (!this.genderMap.isEmpty()) {
             System.out.println("\nAlunos do sexo masculino:");
-            for (Aluno masc : this.genderMap.get("Masculino")) {
+            for (Aluno masc : this.alunos) {
                 System.out.println(" -" + masc);
             }
             System.out.println("\nAlunas do sexo feminino:");
-            for (Aluno fem : this.genderMap.get("Feminino")) {
+            for (Aluno fem : this.alunas) {
                 System.out.println(" -" + fem);
             }
             System.out.println("\n");
@@ -72,5 +76,4 @@ public class GerenciadorDeAlunos {
             System.out.println("\nNão é possível agrupar alunos por gênero\n");
         }
     }
-
 }

@@ -9,9 +9,9 @@ public class App {
         String input = s.nextLine();
         System.out.println(input);
 
-        // String input1 = "Beltrana-Feminino, Fulano-Masculino, Ciclano-Masculino, Beltrano-Masculino, Ciclana-Feminino";
-        // String input2 = "Beltrana, Fulano, Ciclano, Beltrano, Ciclana";
-        // String input3 = "Beltrana, Beltrana-Feminino, Fulano, Ciclano, Beltrano, Ciclana, Ciclano-Masculino";
+        // String input = "Beltrana-Feminino, Fulano-Masculino, Ciclano-Masculino, Beltrano-Masculino, Ciclana-Feminino";
+        // String input = "Beltrana, Fulano, Ciclano, Beltrano, Ciclana";
+        // String input = "Beltrana, Beltrana-Feminino, Fulano, Ciclano, Beltrano, Ciclana, Ciclano-Masculino";
 
         GerenciadorDeAlunos gerenciador = new GerenciadorDeAlunos(input);
         gerenciador.sortByName();
