@@ -281,7 +281,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } else {
             String inputString = JOptionPane.showInputDialog(null, "Digite o CPF:", "Consultar", JOptionPane.INFORMATION_MESSAGE);
             if (inputString != null) {
-                if (inputString.length() == 11 && inputString.matches("\\d+")) {
+                if (isInputLongValid(inputString, 1)) {
                     Cliente clienteBuscado = this.clientesCadastrados.consultar(Long.valueOf(inputString));
                     if (clienteBuscado != null) {
                         setTextInput(clienteBuscado);
@@ -314,17 +314,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
             novoCliente.setNome(_nome);
         } else {erros += "O nome deve ter ao menos 3 caracteres\n";}
         
-        if (isInputLongValid(_cpf, 11) && _cpf.length() == 11) {
+        if (isInputLongValid(_cpf, 1)) {
             novoCliente.setCpf(Long.valueOf(_cpf)); 
         } else {erros += "cpf inválido\n";}
         if (isInputLongValid(_tel, 1)) { novoCliente.setTel(Long.valueOf(_tel)); }     
-        if (isInputStringValid(_end, 2)) { novoCliente.setEnd(_end); }
+        if (isInputStringValid(_end, 1)) { novoCliente.setEnd(_end); }
         if (isInputIntegerValid(_num)) {novoCliente.setNumero(Integer.valueOf(_num));}
-        if (isInputStringValid(_cidade, 2)) { novoCliente.setCidade(_cidade); }
-        if (isInputStringValid(_estado, 2)) { novoCliente.setEstado(_estado); }
+        if (isInputStringValid(_cidade, 1)) { novoCliente.setCidade(_cidade); }
+        if (isInputStringValid(_estado, 1)) { novoCliente.setEstado(_estado); }
         
         if (this.cadastrar) {
-            if (isInputLongValid(_cpf, 11) && _cpf.length() == 11 && (isInputStringValid(_nome, 3))) {
+            if (isInputLongValid(_cpf, 1) && (isInputStringValid(_nome, 3))) {
                 if (clientesCadastrados.consultar(Long.valueOf(_cpf)) == null) {
                     this.clientesCadastrados.cadastrar(novoCliente);
                     updateTable();
@@ -338,9 +338,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, erros);
             }
         } else {
-            clientesCadastrados.alterar(novoCliente);
-            updateTable();
-            JOptionPane.showMessageDialog(null, "Informações alteradas!");
+            if (isInputStringValid(_nome, 3)) {
+                clientesCadastrados.alterar(novoCliente);
+                updateTable();
+                JOptionPane.showMessageDialog(null, "Informações alteradas!");
+            } else {
+                JOptionPane.showMessageDialog(null, erros);
+            }
+
         }               
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
