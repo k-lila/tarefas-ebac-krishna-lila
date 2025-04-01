@@ -54,5 +54,9 @@ public class ClienteMapDAO implements IClienteDAO {
     public Collection<Cliente> buscarTodos() {
         return this.map.values();
     }
+    
+    public Integer length() {
+        return this.map.size();
+    }
 
 }

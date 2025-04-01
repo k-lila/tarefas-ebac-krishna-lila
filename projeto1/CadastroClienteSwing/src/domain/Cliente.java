@@ -70,7 +70,7 @@ public class Cliente {
         return string;
     }
 
-    public String showInfo() {
+    public String getInfo() {
         return String.format("Nome: %s\nCPF: %s\nTelefone: %s\nEndereço: %s, %d\nCidade: %s\nEstado: %s",
             nome, cpf, tel, end, numero, cidade, estado);
     }
