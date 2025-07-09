@@ -41,28 +41,20 @@ public Boolean create(Stock stock) throws DAOException {
 @Override
 public Boolean delete(Long id) throws DAOException {
     try {
-        System.out.println("AQUI1");
         openConnection();
         Stock stock = entityManager.find(Stock.class, id);
-        System.out.println("AQUI2");
         if (stock == null) {
             closeConnection();
             return false;
         }
-        System.out.println("AQUI3");
         Product product = stock.getProduct();
         if (product != null) {
             product.setStock(null);
             entityManager.merge(product);
         }
-        System.out.println("AQUI4");
-
         entityManager.remove(stock);
-        System.out.println("AQUI5");
         entityManager.getTransaction().commit();
-        System.out.println("AQUI6");
         closeConnection();
-        System.out.println("AQUI7");
         return true;
     } catch (Exception e) {
         if (entityManager.getTransaction().isActive()) {
